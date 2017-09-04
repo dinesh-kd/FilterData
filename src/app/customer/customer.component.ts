@@ -35,6 +35,7 @@ export class CustomerComponent implements OnInit {
   public handleCustomerChange(value): void{
     this.sites = value.sites;
     this.gridData = value.sites;
+    this.assets = [];
     this.filterForm.patchValue({
       sites: null,
       assets: null
@@ -55,12 +56,12 @@ export class CustomerComponent implements OnInit {
     let isAssets = selectedRow.hasOwnProperty("assets");;
     debugger;
     if(isSites){
-      this.gridData = selectedRow.sites;
+      this.handleCustomerChange(selectedRow);
       this.filterForm.patchValue({
         customers: selectedRow
       });
     }else if(isAssets){
-      this.gridData = selectedRow.assets;
+      this.handleSiteChange(selectedRow);
       this.filterForm.patchValue({
         sites: selectedRow
       });
@@ -73,6 +74,8 @@ export class CustomerComponent implements OnInit {
 
   public resetValue():void {
     this.filterForm.reset();
-    this.gridData = this.customers
+    this.gridData = this.customers;
+    this.sites = [];
+    this.assets = [];
   }
 }

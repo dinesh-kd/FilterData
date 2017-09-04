@@ -9,6 +9,7 @@
             <div class="col-md-2">
                 <kendo-dropdownlist
                     formControlName="customers"
+                    [disabled]="customers.length==0"
                     [data]="customers"
                     [defaultItem]="{ name: 'Select Customer', id: null }"
                     [textField]="'name'"
@@ -20,6 +21,7 @@
             <div class="col-md-2">
                 <kendo-dropdownlist
                     formControlName="sites"
+                    [disabled]="sites.length==0"
                     [data]="sites"
                     [defaultItem]="{ name: 'Select Site', id: null }"
                     [textField]="'name'"
@@ -31,11 +33,11 @@
             <div class="col-md-2">
                 <kendo-dropdownlist
                     formControlName="assets"
+                    [disabled]="assets.length==0"
                     [data]="assets"
                     [defaultItem]="{ name: 'Select Asset', id: null }"
                     [textField]="'name'"
                     [valueField]="'id'"
-                    (valueChange)="handleAssetChange($event)"
                     required>
                 </kendo-dropdownlist>  
             </div>
