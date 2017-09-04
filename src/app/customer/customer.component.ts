@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl } from '@angular/forms';
 import _ from "lodash";
 
+import { AssetsModel,CustomerModel,SitesModel } from './customer.model';
 import { CustomerService } from './customer.service';
 
 @Component({
@@ -21,10 +22,10 @@ export class CustomerComponent implements OnInit {
     })
   }
 
-  public customers = [];
-  public sites = [];
-  public assets = [];
-  public gridData: any[] = [];
+  public customers:CustomerModel[] = [];
+  public sites:SitesModel[] = [];
+  public assets:AssetsModel[]= [];
+  public gridData: CustomerModel[] | SitesModel[] | AssetsModel[] = [];
 
   public filterForm: FormGroup = new FormGroup({
       customers: new FormControl(),
@@ -32,7 +33,7 @@ export class CustomerComponent implements OnInit {
       assets: new FormControl()
   });
 
-  public handleCustomerChange(value): void{
+  public handleCustomerChange(value:CustomerModel): void{
     this.sites = value.sites;
     this.gridData = value.sites;
     this.assets = [];
@@ -42,7 +43,7 @@ export class CustomerComponent implements OnInit {
     });
   }
 
-  public handleSiteChange(value):void {
+  public handleSiteChange(value:SitesModel):void {
     this.assets = value.assets;
     this.gridData = value.assets;
     this.filterForm.patchValue({
@@ -54,7 +55,6 @@ export class CustomerComponent implements OnInit {
     let selectedRow = gridCustomer.data[selection.index];
     let isSites = selectedRow.hasOwnProperty("sites");;
     let isAssets = selectedRow.hasOwnProperty("assets");;
-    debugger;
     if(isSites){
       this.handleCustomerChange(selectedRow);
       this.filterForm.patchValue({
