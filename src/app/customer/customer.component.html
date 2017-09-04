@@ -10,7 +10,6 @@
                 <kendo-dropdownlist
                     formControlName="customers"
                     [data]="customers"
-                    [(ngModel)]="customers"
                     [defaultItem]="{ name: 'Select Customer', id: null }"
                     [textField]="'name'"
                     [valueField]="'id'"
@@ -22,8 +21,7 @@
                 <kendo-dropdownlist
                     formControlName="sites"
                     [data]="sites"
-                    [(ngModel)]="sites"
-                    [defaultItem]="{ name: 'Select Customer', id: null }"
+                    [defaultItem]="{ name: 'Select Site', id: null }"
                     [textField]="'name'"
                     [valueField]="'id'"
                     (valueChange)="handleSiteChange($event)"
@@ -34,8 +32,7 @@
                 <kendo-dropdownlist
                     formControlName="assets"
                     [data]="assets"
-                    [(ngModel)]="assets"
-                    [defaultItem]="{ name: 'Select Customer', id: null }"
+                    [defaultItem]="{ name: 'Select Asset', id: null }"
                     [textField]="'name'"
                     [valueField]="'id'"
                     (valueChange)="handleAssetChange($event)"
