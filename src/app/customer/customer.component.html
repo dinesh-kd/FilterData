@@ -38,7 +38,20 @@
                     (valueChange)="handleAssetChange($event)"
                     required>
                 </kendo-dropdownlist>  
+            </div>
+            <div class="col-md-2">
+                <button type="button" value="Reset" (click)="resetValue()">Reset</button>
             </div>        
         </div>
     </form>
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+        <kendo-grid #gridCustomer [selectable]="true" [data]="gridData"  [height]="410" (selectionChange)="handleSelectGrid(gridCustomer,$event)">
+            <kendo-grid-column field="id" title="ID" width="40"></kendo-grid-column>
+            <kendo-grid-column field="name" title="Name" width="250"></kendo-grid-column>
+        </kendo-grid>
+    </div>
 </div>

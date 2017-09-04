@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { HttpClientModule } from '@angular/common/http';
+import { GridModule } from '@progress/kendo-angular-grid';
 
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
@@ -20,6 +21,7 @@ import { CustomerService } from './customer/customer.service';
     HttpClientModule,
     ReactiveFormsModule,
     DropDownsModule,
+    GridModule
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent]
