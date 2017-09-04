@@ -34,13 +34,23 @@ export class CustomerComponent implements OnInit {
   });
 
   public handleCustomerChange(value:CustomerModel): void{
-    this.sites = value.sites;
-    this.gridData = value.sites;
-    this.assets = [];
-    this.filterForm.patchValue({
-      sites: null,
-      assets: null
-    });
+    if(value.id)
+    {
+      this.sites = value.sites;
+      this.assets=[];
+      for(let site of this.sites){
+        for(let asset of site.assets){
+          this.assets.push(asset);
+        }
+      }
+      this.gridData = value.sites;
+      this.filterForm.patchValue({
+        sites: null,
+        assets: null
+      });
+    }else{
+      this.resetValue();
+    }
   }
 
   public handleSiteChange(value:SitesModel):void {
